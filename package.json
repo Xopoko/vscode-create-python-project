@@ -1,0 +1,39 @@
+{
+  "name": "create-python-project",
+  "displayName": "Create Python Project",
+  "description": "Extension for quick Python project creation from an empty VSCode explorer.",
+  "version": "1.0.0",
+  "publisher": "Horoko",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.createPythonProject",
+        "title": "Create Python Project"
+      }
+    ],
+    "viewsWelcome": [
+      {
+        "view": "explorer",
+        "contents": "You can also create a new Python project.\n[Create Python Project](command:extension.createPythonProject){button}"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^16.0.0",
+    "typescript": "^4.0.0"
+  }
+}
