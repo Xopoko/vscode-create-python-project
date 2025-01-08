@@ -4,6 +4,11 @@
   "description": "Extension for quick Python project creation from an empty VSCode explorer.",
   "version": "1.0.0",
   "publisher": "Horoko",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xopoko/vscode-create-python-project"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
