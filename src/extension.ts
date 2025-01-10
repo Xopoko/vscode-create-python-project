@@ -37,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
 
             vscode.window.showInformationMessage('Creating virtual environment (.venv)...');
-            await runCommand('python -m venv .venv', fullProjectPath);
+            await createVirtualEnv(fullProjectPath);
 
             const requirementsPath = path.join(fullProjectPath, 'requirements.txt');
             fs.writeFileSync(requirementsPath, '# List your project dependencies here\n', { encoding: 'utf8' });
@@ -78,6 +78,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {}
 
+function createVirtualEnv(folderPath: string): Promise<void> {
+    return runCommand(`${getPythonCommand()} -m venv .venv`, folderPath);
+}
+
 function runCommand(command: string, cwd: string): Promise<void> {
     return new Promise((resolve, reject) => {
         exec(command, { cwd }, (error, stdout, stderr) => {
@@ -88,4 +92,8 @@ function runCommand(command: string, cwd: string): Promise<void> {
             resolve();
         });
     });
+}
+
+function getPythonCommand(): string {
+    return process.platform === 'win32' ? 'python' : 'python3';
 }

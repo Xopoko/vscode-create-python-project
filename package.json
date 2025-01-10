@@ -2,7 +2,7 @@
   "name": "create-python-project",
   "displayName": "Create Python Project",
   "description": "Extension for quick Python project creation from an empty VSCode explorer.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "Horoko",
   "icon": "icon.png",
   "repository": {
